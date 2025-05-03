@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calm Home</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0b0c2a, #1f2e4c);
+      color: white;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #f0dbff;
+    }
+    .section {
+      margin-bottom: 30px;
+      background-color: #2c365a;
+      padding: 15px;
+      border-radius: 12px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    button {
+      background: #b38bff;
+      color: #1f2e4c;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #d2b6ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Calm Home</h1>
+
+  <div class="section">
+    <h2>Grounding Script</h2>
+    <p id="script">
+      Feel my feet. Breathe in slow. This feeling won’t last—it’s just a show.<br>
+      I don’t have to rush. I don’t have to run. I can choose what’s kind. I can stay with this one.
+    </p>
+    <button onclick="speakScript()">Play Script Aloud</button>
+  </div>
+
+  <div class="section">
+    <h2>Daily Checklist</h2>
+    <label><input type="checkbox"> Tidy my peace zone (2+ min)</label>
+    <label><input type="checkbox"> 10-minute tidy timer</label>
+    <label><input type="checkbox"> Brain dump / externalize task</label>
+    <label><input type="checkbox"> Give one item a “home”</label>
+    <label><input type="checkbox"> Routine anchor reset</label>
+    <label><input type="checkbox"> Remind myself: progress over perfection</label>
+  </div>
+
+  <script>
+    function speakScript() {
+      const script = document.getElementById("script").innerText;
+      const utterance = new SpeechSynthesisUtterance(script);
+      utterance.rate = 1;
+      utterance.pitch = 1;
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
